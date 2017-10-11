@@ -5,8 +5,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 define( "API_KEY","HERE-YOUR-GOOGLE-API-CONSOLE-KEY" );
 define( "API_NAME","HERE-THE-NAME-OF-YOUR-API-PROJECT" );
 
-define( "ID_SPREEDSHEET","HERE-THE-ID-OF-SPREEDSHEET" );
-define( "RANGE_SPREEDSHEET","A:E" );
+define( "ID_SPREADSHEET","HERE-THE-ID-OF-SPREADSHEET" );
+define( "RANGE_SPREADSHEET","A:E" );
 
 class GoogleSheetsToXML{
 
@@ -24,8 +24,8 @@ class GoogleSheetsToXML{
 					$client = $this->checkAuth();
 					$service = new Google_Service_Sheets($client);
 
-					$spreadsheetId = ID_SPREEDSHEET;
-					$range = $tab."!".RANGE_SPREEDSHEET;
+					$spreadsheetId = ID_SPREADSHEET;
+					$range = $tab."!".RANGE_SPREADSHEET;
 
 					$response = $service->spreadsheets_values->get($spreadsheetId, $range);
 					$values = $response->getValues();
@@ -37,13 +37,13 @@ class GoogleSheetsToXML{
 					$this->resultCells = $values[0];
 		}
 
-		public function generateXML( $tabSpreedSheet ){
+		public function generateXML( $tabSPREADSHEET ){
 
-					$this->arrayResult( $tabSpreedSheet );
+					$this->arrayResult( $tabSPREADSHEET );
 
 					$count = 0;
 
-					$result = '<'.$tabSpreedSheet.'>';
+					$result = '<'.$tabSPREADSHEET.'>';
 
 					foreach ( $this->resultSheet as $key ) {
 						
@@ -77,7 +77,7 @@ class GoogleSheetsToXML{
 
 					}
 
-					$result .= '</'.$tabSpreedSheet.'>';
+					$result .= '</'.$tabSPREADSHEET.'>';
 
 				    header('Access-Control-Allow-Origin: *'); 
 				    header("Content-type: text/xml; charset=utf-8");

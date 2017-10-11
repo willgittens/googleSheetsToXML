@@ -5,4 +5,3 @@
 
 // You can see the full documentation on Github:
 // https://github.com/willgittens/googleSheetsToXML
-
