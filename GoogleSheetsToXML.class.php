@@ -37,13 +37,13 @@ class GoogleSheetsToXML{
 					$this->resultCells = $values[0];
 		}
 
-		public function generateXML( $tabSPREADSHEET ){
+		public function generateXML( $tabSpreadSheet ){
 
-					$this->arrayResult( $tabSPREADSHEET );
+					$this->arrayResult( $tabSpreadSheet );
 
 					$count = 0;
 
-					$result = '<'.$tabSPREADSHEET.'>';
+					$result = '<'.$tabSpreadSheet.'>';
 
 					foreach ( $this->resultSheet as $key ) {
 						
@@ -77,7 +77,7 @@ class GoogleSheetsToXML{
 
 					}
 
-					$result .= '</'.$tabSPREADSHEET.'>';
+					$result .= '</'.$tabSpreadSheet.'>';
 
 				    header('Access-Control-Allow-Origin: *'); 
 				    header("Content-type: text/xml; charset=utf-8");
